@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        input[type="number"], input[type="text"] {
+            padding: 5px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        input[type="submit"] {
+            margin: 0 auto;
+            padding: 10px 20px;
+            border-radius: 3px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+    </style>
+</head>
+<body>
+    <h1>Password Generator</h1>
+    <form method="POST">
+        <label for="digits">Number of digits:</label>
+        <input type="number" id="digits" name="digits" min="1" max="10" required><br>
+
+        <label for="lowcase">Number of lowercase letters:</label>
+        <input type="number" id="lowcase" name="lowcase" min="1" max="10" required><br>
+
+        <label for="uppercase">Number of uppercase letters:</label>
+        <input type="number" id="uppercase" name="uppercase" min="1" max="10" required><br>
+
+        <label for="symbols">Number of symbols:</label>
+        <input type="number" id="symbols" name="symbols" min="1" max="10" required><br>
+
+        <label for="application">Application name:</label>
+        <input type="text" id="application" name="application" required><br>
+
+        <input type="submit" value="Generate Password">
+
+    </form>
+
+    {% if password %}
+    <h2>Generated Password:</h2>
+    <p>{{ password }}</p>
+    <h2>Form Data:</h2>
+    <p>Number of digits: {{ request.form['digits'] }}</p>
+    <p>Number of lowercase letters: {{ request.form['lowcase'] }}</p>
+    <p>Number of uppercase letters: {{ request.form['uppercase'] }}</p>
+    <p>Number of symbols: {{ request.form['symbols'] }}</p>
+    <p>Application name: {{ request.form['application'] }}</p>
+    {% endif %}
+</body>
+</html>
