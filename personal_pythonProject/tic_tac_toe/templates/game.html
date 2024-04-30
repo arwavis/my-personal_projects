@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tic Tac Toe</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+<style>
+    body { display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; background-color: #f0f8ff; }
+    .header { background-color: #007bff; color: white; padding: 20px; width: 100%; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .board { display: grid; grid-template-columns: repeat(3, 100px); gap: 5px; }
+    .cell { display: flex; align-items: center; justify-content: center; height: 100px; cursor: pointer; background: #fff; border: 2px solid #ddd; }
+    .cell.x { color: red; }
+    .cell.o { color: blue; }
+    .winner { background-color: #90ee90; }
+    button { margin-top: 10px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Tic Tac Toe</h1>
+    <h2>Turn: {{ player_x if turn == 'X' else player_o }} ({{ turn }})</h2>
+    <h2>Score - {{ player_x }}: {{ score['X'] }}, {{ player_o }}: {{ score['O'] }}</h2>
+</div>
+<div>
+    <form method="POST">
+        <div class="board">
+            {% for i in range(9) %}
+            <button name="move" value="{{ i }}" type="submit" class="cell {{ 'x' if board[i] == 'X' else 'o' if board[i] == 'O' else '' }} {{ 'winner' if winner and board[i] == winner }}" {{ 'disabled' if board[i] != ' ' }}>
+                {{ board[i] }}
+            </button>
+            {% endfor %}
+        </div>
+        <button name="reset_scores" type="submit" class="p-2 bg-red-500 text-white rounded">Reset Scores</button>
+        <button name="restart_game" type="submit" class="p-2 bg-green-500 text-white rounded">Restart Game</button>
+    </form>
+    {% if winner %}
+    <div class="winner-info">
+        <h2>{{ winner }} wins!</h2>
+    </div>
+    {% endif %}
+</div>
+</body>
+</html>
