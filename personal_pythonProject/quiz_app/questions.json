@@ -1,0 +1,19 @@
+[
+    {
+        "type": "multiple_choice",
+        "question": "What is the capital of France?",
+        "options": ["Paris", "London", "Rome", "Madrid"],
+        "answer": "Paris"
+    },
+    {
+        "type": "true_false",
+        "question": "The sky is green.",
+        "answer": "False"
+    },
+    {
+        "type": "multiple_response",
+        "question": "Select the two largest countries by area.",
+        "options": ["Russia", "Canada", "China", "United States"],
+        "answers": ["Russia", "Canada"]
+    }
+]
