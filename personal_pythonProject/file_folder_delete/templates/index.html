@@ -47,6 +47,9 @@
 </head>
 <body>
     <h1>Files to Delete</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
     <ul>
         {% for file in files %}
         <li>{{ file.name }} - {{ file.path }}</li>
