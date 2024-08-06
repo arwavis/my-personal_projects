@@ -1,0 +1,38 @@
+CREATE TABLE Contacts (
+    Contact_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    First_Name TEXT NOT NULL,
+    Last_Name TEXT NOT NULL,
+    Email TEXT,
+    Phone TEXT,
+    Address TEXT
+);
+
+CREATE TABLE Addresses (
+    Address_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Contact_ID INTEGER,
+    Address_Type TEXT,
+    Address TEXT,
+    FOREIGN KEY (Contact_ID) REFERENCES Contacts (Contact_ID)
+);
+
+CREATE TABLE Phone_Numbers (
+    Phone_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Contact_ID INTEGER,
+    Phone_Type TEXT,
+    Phone_Number TEXT,
+    FOREIGN KEY (Contact_ID) REFERENCES Contacts (Contact_ID)
+);
+
+CREATE TABLE Groups (
+    Group_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Group_Name TEXT NOT NULL
+);
+
+CREATE TABLE Contact_Groups (
+    Contact_ID INTEGER,
+    Group_ID INTEGER,
+    Role TEXT,
+    PRIMARY KEY (Contact_ID, Group_ID),
+    FOREIGN KEY (Contact_ID) REFERENCES Contacts (Contact_ID),
+    FOREIGN KEY (Group_ID) REFERENCES Groups (Group_ID)
+);
