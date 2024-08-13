@@ -1,0 +1,2 @@
+Google search, https://www.google.com/search?q=how+to+link+incident+to+asset+in+JSM%3F&rlz=1C5CHFA_enIN1083IN1084&oq=how+to+link+incident+to+asset+in+JSM%3F&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIHCAEQIRigAdIBCDgyNjdqMGo3qAIIsAIB&sourceid=chrome&ie=UTF-8, http://127.0.0.1:5000/dGXSPD
+Atlassian Asset, https://community.atlassian.com/t5/Assets-Data-Manager-f-k-a/What-adapters-will-Assets-Data-Manager-support/ba-p/2659714?utm_source=atlcomm&utm_medium=email&utm_campaign=immediate_general_comment&utm_content=topic, http://127.0.0.1:5000/EzrcpP

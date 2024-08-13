@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>URL Shortener</h1>
+        <form method="POST">
+            <label for="name">Enter a name for your URL:</label><br><br>
+            <input type="text" id="name" name="name" placeholder="Example: My Blog" required><br><br>
+
+            <label for="long_url">Enter the long URL:</label><br><br>
+            <input type="url" id="long_url" name="long_url" placeholder="https://example.com" required><br><br>
+
+            <input type="submit" value="Generate Short URL" class="button">
+        </form>
+        {% if short_url %}
+        <div class="result">
+            <p><strong>{{ name }}</strong></p>
+            <p>Short URL: <a href="{{ short_url }}" target="_blank">{{ short_url }}</a></p>
+            <p>Redirects to: {{ long_url }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
