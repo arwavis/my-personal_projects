@@ -14,7 +14,8 @@ def set_alarm(alarm_time):
         current_time = now.strftime("%H:%M")
         if current_time == alarm_time:
             print("Wake up!")
-            playsound('path_to_sound.mp3')  # Make sure to have a sound file
+            playsound('/Users/aravindv/Documents/code/github/my-personal_projects/alarm_clock.mp3')  # Make sure to
+            # have a sound file
             break
         time.sleep(30)  # Check every 30 seconds
 
