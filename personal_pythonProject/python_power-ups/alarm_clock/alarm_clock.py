@@ -1,8 +1,6 @@
-
-
 import datetime
 import time
-from playsound import playsound
+import simpleaudio as sa
 
 
 def set_alarm(alarm_time):
@@ -14,8 +12,13 @@ def set_alarm(alarm_time):
         current_time = now.strftime("%H:%M")
         if current_time == alarm_time:
             print("Wake up!")
-            playsound('/Users/aravindv/Documents/code/github/my-personal_projects/alarm_clock.mp3')  # Make sure to
-            # have a sound file
+            try:
+                wave_obj = sa.WaveObject.from_wave_file('/Users/aravindv/Documents/code/github/my-personal_projects'
+                                                        '/alarm_clock.wav')
+                play_obj = wave_obj.play()
+                play_obj.wait_done()  # Wait for the sound to finish playing
+            except Exception as e:
+                print(f"Error playing sound: {e}")
             break
         time.sleep(30)  # Check every 30 seconds
 
