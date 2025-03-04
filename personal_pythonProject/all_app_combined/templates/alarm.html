@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alarm Clock</title>
+</head>
+<body>
+    <h1>Alarm Clock</h1>
+    <p>{{ message }}</p>
+    <form method="POST">
+        <label for="alarm_time">Set Alarm (HH:MM):</label>
+        <input type="time" id="alarm_time" name="alarm_time" required>
+        <button type="submit">Set Alarm</button>
+    </form>
+    <br>
+    <a href="{{ url_for('home') }}">Back to Home</a>
+</body>
+</html>
